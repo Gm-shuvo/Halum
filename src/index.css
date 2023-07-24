@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Adding bg in tailwing base */
+@layer base {
+  body {
+    @apply bg-[#0F172A] text-white;
+  }
+}
+
+*, html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
