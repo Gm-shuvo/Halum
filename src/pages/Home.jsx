@@ -35,7 +35,7 @@ export function Home() {
     <div className="">
       
       <Nav />
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-6 ">
+      <div className="mt-20 sm:mt-24 mx-10 sm:mx-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-10 md:gap-14 ">
         {data.results.map((movie, index) => (
           <>
             <MovieCard key={index} movie={movie}/>
