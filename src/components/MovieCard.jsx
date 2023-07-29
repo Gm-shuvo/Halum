@@ -2,8 +2,19 @@ import { useState } from "react";
 import { AiFillHeart, AiFillStar, AiTwotoneStar } from "react-icons/ai";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-const MovieCard = ({ movie }) => {
+import { useInView } from "react-intersection-observer";
+
+
+const MovieCard = ({ movie}) => {
   const [isMarked, setIsMarked] = useState(false);
+
+  // console.log(invi)
+
+
+  // if (inView && index === totalMovies - 2) {
+  //   loadMore();
+  // }
+
   return (
     <div key={movie?.id} className="group relative">
       <img
@@ -28,7 +39,7 @@ const MovieCard = ({ movie }) => {
         <CircularProgressbar
           value={movie.vote_average}
           maxValue={10}
-          text={`${movie.vote_average}`}
+          text={`${movie?.vote_average.toFixed(1)}`}
           strokeWidth={13}
           styles={{
             root: {
