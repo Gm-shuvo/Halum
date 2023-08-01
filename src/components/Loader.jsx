@@ -1,12 +1,12 @@
 import { ColorRing } from "react-loader-spinner";
 
-export const Loader = () => {
+export const Loader = ({size}) => {
   return (
     <div className="w-screen h-screen flex items-center justify-center ">
       <ColorRing
         visible={true}
-        height="80"
-        width="80"
+        height={size ? size : 80}
+        width={size ? size : 80}
         ariaLabel="Loading..."
         wrapperStyle={{}}
         wrapperClass="blocks-wrapper"
