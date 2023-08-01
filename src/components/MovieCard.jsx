@@ -1,40 +1,29 @@
 import { useState } from "react";
-import { AiFillHeart, AiFillStar, AiTwotoneStar } from "react-icons/ai";
+import { AiFillHeart} from "react-icons/ai";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
+import dayjs from "dayjs";
 
 
-const MovieCard = ({ movie}) => {
+const MovieCard = ({ movie, mediaType}) => {
   const [isMarked, setIsMarked] = useState(false);
 
-  // console.log(invi)
-
-
-  // if (inView && index === totalMovies - 2) {
-  //   loadMore();
-  // }
-
+  const handleMarked = (e) => {
+    e.stopPropagation();
+    setIsMarked((prev) => !prev);
+  }
+  
+  const date  = movie?.release_date || movie?.first_air_date;
   return (
-    <div key={movie?.id} className="group relative">
+    <div className="group relative">
+    <Link to={`/${mediaType}/${movie?.id}`} key={movie?.id} className="group relative">
       <img
-        src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+        src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`}
         alt=""
-        className="h-full object-cover items-center rounded-md group-hover:scale-105"
+        className="h-full object-center items-center rounded-md group-hover:scale-105"
       />
-      <div
-        className={` absolute hidden group-hover:flex top-2 right-2 cursor-pointer overflow-hidden`}
-        onClick={(prev) => {
-          setIsMarked(true);
-        }}
-      >
-        <AiFillHeart
-          size={35}
-          className={`${
-            isMarked ? "fill-red-500 " : " fill-white"
-          } stroke-black`}
-        />
-      </div>
+     
       <div className="absolute hidden group-hover:flex top-2 left-0 cursor-pointer ">
         <CircularProgressbar
           value={movie.vote_average}
@@ -44,7 +33,7 @@ const MovieCard = ({ movie}) => {
           styles={{
             root: {
               width: 50,
-              backgroundColor: "#ffff",
+              backgroundColor: `rgba(255, 255, 255, 0.8)`,
               borderRadius: "50%",
             },
             path: {
@@ -59,7 +48,7 @@ const MovieCard = ({ movie}) => {
               
             },
             text: {
-              fill: "rgba(255, 27, 0, 0.99)",
+              fill: "rgba(255, 27, 0, 1)",
               fontSize: "2rem",
               fontWeight: "bold",
             },
@@ -78,8 +67,20 @@ const MovieCard = ({ movie}) => {
           {movie?.overview}
         </p>
         <p className="text-white text-sm">
-          {movie?.release_date || movie?.first_air_date}
+          {date && dayjs(date).format("MMM DD, YYYY")}
         </p>
+      </div>
+    </Link>
+    <div
+        className={` absolute hidden group-hover:flex top-2 right-2 cursor-pointer overflow-hidden`}
+        onClick={handleMarked}
+      >
+        <AiFillHeart
+          size={35}
+          className={`${
+            isMarked ? "fill-red-500 " : " fill-white"
+          } stroke-black`}
+        />
       </div>
     </div>
   );
