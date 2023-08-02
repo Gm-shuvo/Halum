@@ -6,10 +6,10 @@ const Cast = ({ data, loading }) => {
     <ContenerWarrap>
       {data && (
         <>
-          <div className="text-white text-2xl font-bold mb-4 pl-10 mt-10">
+          <div className="text-white text-2xl font-bold mb-4 ml-10 mt-10">
             Cast
           </div>
-          <div className="flex gap-10 overflow-x-auto pl-10 mt-6 mb-8">
+          <div className="flex gap-10 overflow-x-auto ml-10 mt-6 mb-8 rounded-md">
             {data?.map((item) => (
               <div key={item.id} className="text-center space-y-2">
                 <div className="relative w-28 h-28 overflow-hidden rounded-full">

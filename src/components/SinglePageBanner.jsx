@@ -60,7 +60,7 @@ const SinglePageBanner = ({ id, type, video, crew }) => {
                     />
                   )}
                 </div>
-                <div className="right flex flex-col items-start">
+                <div className="right flex flex-col pl-10">
                   <div className="title text-2xl mb-4">
                     {`${data?.title || data?.name} (${
                       data?.release_date &&
@@ -73,7 +73,7 @@ const SinglePageBanner = ({ id, type, video, crew }) => {
                   <div className="gener ">
                     <Gener genres={data?.genres} />
                   </div>
-                  <div className="rating play mt-4 flex items-center justify-center">
+                  <div className="rating play mt-4 flex items-center ">
                     <CircularProgressbar
                       value={data?.vote_average}
                       maxValue={10}
@@ -117,7 +117,7 @@ const SinglePageBanner = ({ id, type, video, crew }) => {
                   </div>
                 </div>
               </div>
-              <div className=" text-white flex justify-start space-x-10 mt-10 border-b-[1px] border-gray-400/20 py-2">
+              <div className=" text-white flex justify-start space-x-10 mt-10 border-b-[1px] border-gray-400/20 py-2 ml-10 md:ml-0">
                 {data?.status && (
                   <div className="text-white  ">
                     <span className="text-lg font-bold">Status: </span>
@@ -139,7 +139,7 @@ const SinglePageBanner = ({ id, type, video, crew }) => {
                   </div>
                 )}
               </div>
-              <div className="crew mt-10 text-white flex space-x-10 border-b-[1px] border-b-gray-400/20 py-2 ">
+              <div className="crew mt-10 text-white flex space-x-10 border-b-[1px] border-b-gray-400/20 py-2 ml-10 md:ml-0">
                 {director?.length > 0 && <div className="director">
                   <div className="text-lg font-bold mb-2">Director:</div>
                   <div className="text-base">
@@ -162,7 +162,6 @@ const SinglePageBanner = ({ id, type, video, crew }) => {
                     </div>
                   )
                 }
-
                 </div>
             </div>
           </ContenerWarrap>

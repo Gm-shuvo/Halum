@@ -11,10 +11,10 @@ const VideoSection = ({videos, loading}) => {
     <ContenerWarrap>
       {videos && (
         <>
-          <div className="text-white text-2xl font-bold mb-4 pl-10 mt-10">
+          <div className="text-white text-2xl font-bold mb-4 ml-10 mt-10">
             Offical Videos            
           </div>
-          <div className="flex gap-10 overflow-x-auto pl-10 mt-6 mb-8">
+          <div className="flex gap-8 overflow-x-auto ml-10 mt-6 mb-8">
             {videos?.map((item) => (
               <div key={item.id} className="">
                 <div className="relative w-64 h-36 overflow-hidden">
