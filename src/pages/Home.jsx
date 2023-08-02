@@ -5,6 +5,7 @@ import { Loader } from "../components/Loader";
 import Nav from "../components/Nav";
 import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
+import ContenerWarrap from "../components/ContenerWarrap";
 
 export function Home() {
   const {q} = useParams();
@@ -49,7 +50,7 @@ export function Home() {
   }
 
   return (
-    <>
+    <ContenerWarrap>
       <div className="mb-8">
         <Nav />
           <InfiniteScroll
@@ -57,7 +58,7 @@ export function Home() {
           next={loadMore}
           hasMore={movies.length < data?.total_results}
           loader={<Loader size={60} />}
-          endMessage={
+          endMessage={!isLoading && movies.length > 0 && 
             <p style={{ textAlign: "center" ,color:"red" }}>
               <b>Yay! You have seen it all</b>
             </p>
@@ -73,6 +74,6 @@ export function Home() {
           </div>
           </InfiniteScroll>
       </div>
-    </>
+    </ContenerWarrap>
   );
 }
