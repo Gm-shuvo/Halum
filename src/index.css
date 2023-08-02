@@ -31,7 +31,10 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
-
+:root, [data-theme] {
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity, 0));
+  color: hsl(var(--bc) / var(--tw-text-opacity, 0));
+}
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
