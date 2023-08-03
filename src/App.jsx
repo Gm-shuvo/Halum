@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import { Home } from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import SingleMovie from "./pages/SingleMovie";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/:q" element={<Home />} />
         <Route path="/:type/:id" element={<SingleMovie />} />
       </Routes>
+      <Footer />
     </>
   );
 }
