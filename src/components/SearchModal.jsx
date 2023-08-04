@@ -28,33 +28,47 @@ const SearchModal = ({ show, setShow }) => {
 
   console.log("searchQuery", searchQuery);
 
-  
-
   return (
-    <div className={`modal ${show ? "modal-open" : ""}  inset-0 transition `}>
-      <div className="modal-box p-0  max-w-2xl  relative">
+    <div className={`modal ${show ? "modal-open" : ""}  transition fixed   bg-none`}>
+      {/* <div className="absolute  max-w-2xl  border-gray-300 px-4 py-2 z-50">
+        <input
+          type="text"
+          placeholder="Search movies..."
+          className="w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div> */}
+      <div className="modal-box p-0 max-w-2xl  relative">
         <button
           className="text-white absolute w-8 h-8 rounded-full text-center text-sm hover:bg-slate-50/20 bg-slate-50/10 top-2 right-2 z-40"
           onClick={() => setShow(false)}
         >
           ✕
         </button>
-        <div className="flex flex-col items-center justify-center  overflow-y-scroll">
-          <input
-            type="text"
-            placeholder="Search movies..."
-            className="w-[80%] border border-gray-300 rounded-md px-4 py-2 mb-4 mt-10"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
+        <div className=" flex flex-col items-center justify-center  overflow-y-scroll">
+          <div className="w-[85%] mt-8 border-gray-300 px-4 py-2">
+            <input
+              type="text"
+              placeholder="Search movies..."
+              className="w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
 
-          <div className="space-y-6 w-[80%] flex flex-col items-center mt-8 mb-6">
+          <div className="space-y-6 w-[80%] flex flex-col items-center mt-8 mb-6 cursor-pointer">
             {isLoading ? (
               <Loader />
             ) : (
               <>
                 {movies?.map((movie) => (
-                  <div onClick={() => {navigate(`/movie/${movie.id}`); setShow(false); setSearchQuery("")}}
+                  <div
+                    onClick={() => {
+                      navigate(`/movie/${movie.id}`);
+                      setShow(false);
+                      setSearchQuery("");
+                    }}
                     key={movie.id}
                     className="flex w-full items-center space-x-3 border-2 border-gray-400/10 rounded-md hover:bg-gray-400/20 p-2"
                   >

@@ -24,7 +24,7 @@ const RecommendedMovies = ({ RecommendMovies, type }) => {
 
   return (
     <ContenerWarrap>
-      {RecommendMovies && (
+      {RecommendMovies.length > 0 && (
         <div className="mb-20 mt-8">
           <div className="relative text-white text-2xl font-bold  ml-10 mt-10 ">
             Recommended Movies

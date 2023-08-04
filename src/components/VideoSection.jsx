@@ -9,7 +9,7 @@ const VideoSection = ({videos, loading}) => {
   const [videoId, setVideoId] = useState(null);
   return (
     <ContenerWarrap>
-      {videos && (
+      {videos.length > 0 && (
         <>
           <div className="text-white text-2xl font-bold mb-4 ml-10 mt-10">
             Offical Videos            
