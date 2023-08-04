@@ -24,7 +24,7 @@ const SimilarMovies = ({ similarMovies, type }) => {
 
   return (
     <ContenerWarrap>
-      {similarMovies && (
+      {similarMovies.length > 0  && (
         <div className="mb-8 mt-8">
           <div className="relative text-white text-2xl font-bold  ml-10 mt-10 ">
             Similar Movies

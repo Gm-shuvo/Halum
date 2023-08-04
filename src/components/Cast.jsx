@@ -4,7 +4,7 @@ const Cast = ({ data, loading }) => {
   const url = "https://image.tmdb.org/t/p/w500"
   return (
     <ContenerWarrap>
-      {data && (
+      {data.length > 0 && (
         <>
           <div className="text-white text-2xl font-bold mb-4 ml-10 mt-10">
             Cast
